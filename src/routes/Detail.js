@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {useParams} from "react-router-dom";
+import styles from "./Detail.module.css";
 
 function Detail() {
     const [loading, setLoading] = useState(true);
@@ -17,22 +18,29 @@ function Detail() {
     },[]);
 
     return (
-    <div>
-       {loading ? <h1>Loading...</h1>: 
-       <div>
-           <img src={movieDetail.medium_cover_image}  alt={movieDetail.title} />
-                <h2>{movieDetail.title_long}</h2>
-                <h3>{`Raiting: ${movieDetail.rating}`}</h3>
-                <h3>{`Runtime: ${movieDetail.runtime} min`}</h3>    
-                <ul>
-                    {movieDetail.genres.map(g => <li key={g}>{g}</li>)}    
-                </ul>
-                <div>
-                    <h3>Description</h3>
-                    <p>
+    <div className={styles.movie__Detail__container}>
+       {loading ? 
+       <div className={styles.loader}>
+           <span>Loading...</span>
+       </div>
+       : 
+       <div className={styles.movie__Detail}>
+           <img src={movieDetail.medium_cover_image}  alt={movieDetail.title} className={styles.movie__Detail__img}/>
+           <img src={movieDetail.background_image_original}  alt={movieDetail.title} className={styles.movie__Detail__background__img}/>     
+                <div className={styles.movie__Detail__info}>
+                    <h2>{movieDetail.title_long}</h2>
+                    <h3>{`Raiting: ${movieDetail.rating}`}</h3>
+                    <h3>{`Runtime: ${movieDetail.runtime} min`}</h3>    
+                    <ul>
+                        {movieDetail.genres.map(g => <li key={g}>{g}</li>)}    
+                    </ul>
+                    <div className={styles.movie__Description}>
+                        <h3>Description</h3>
+                        <span>
                         {movieDetail.description_full}
-                    </p>
-                </div>  
+                        </span>
+                    </div>  
+                </div>
        </div>
        } 
     </div>
