@@ -30,7 +30,7 @@ function Detail() {
                 <div className={styles.movie__Detail__info}>
                     <h2 className={styles.title}>{movieDetail.title_long}</h2>
                     <h3 className={styles.rating}>{`Raiting: ${movieDetail.rating}💛`}</h3>
-                    <h3 calssName={styles.runtime}>{`Runtime: ${movieDetail.runtime} min🕒`}</h3>    
+                    <h3 className={styles.runtime}>{`Runtime: ${movieDetail.runtime} min🕒`}</h3>    
                     <ul>
                         {movieDetail.genres.map(g => <li key={g}>{g}</li>)}    
                     </ul>
