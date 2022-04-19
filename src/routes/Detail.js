@@ -28,14 +28,14 @@ function Detail() {
            <img src={movieDetail.medium_cover_image}  alt={movieDetail.title} className={styles.movie__Detail__img}/>
            <img src={movieDetail.background_image_original}  alt={movieDetail.title} className={styles.movie__Detail__background__img}/>     
                 <div className={styles.movie__Detail__info}>
-                    <h2>{movieDetail.title_long}</h2>
-                    <h3>{`Raiting: ${movieDetail.rating}`}</h3>
-                    <h3>{`Runtime: ${movieDetail.runtime} min`}</h3>    
+                    <h2 className={styles.title}>{movieDetail.title_long}</h2>
+                    <h3 className={styles.rating}>{`Raiting: ${movieDetail.rating}💛`}</h3>
+                    <h3 calssName={styles.runtime}>{`Runtime: ${movieDetail.runtime} min🕒`}</h3>    
                     <ul>
                         {movieDetail.genres.map(g => <li key={g}>{g}</li>)}    
                     </ul>
                     <div className={styles.movie__Description}>
-                        <h3>Description</h3>
+                        <h3 className={styles.description}>Description💬</h3>
                         <span>
                         {movieDetail.description_full}
                         </span>
